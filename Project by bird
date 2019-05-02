@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+  font-size: 28px;
+}
+.auth-input{
+    display: block;
+    width: 15%;
+    height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-family: inherit;
+
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:black;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: goldenrod;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.dropdown-content a:hover {background-color:red;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.home {
+  background-color: red;
+}
+.button {
+  background-color: black;
+  border: red;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: black; 
+  color: white; 
+  border: none;
+}
+
+.button1:hover {
+  background-color: green;
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+</style>
+<title>Admin</title>
+<link rel="shortcut icon" href="Rapper.ico">
+</head>
+<body>
+        <div align ="center" class="header">
+                <h2><font size="+4"><b>Admin</b></font></h2>
+              </div>
+
+<ul>
+    <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Exersice▼</a>
+        <div class="dropdown-content a">
+          <a href="#">Update</a>
+          <a href="#">View</a>
+        </div>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Manage▼</a>
+    <div class="dropdown-content a">
+      <a href="#">Information User</a>
+      <a href="#">Content</a>
+    </div>
+      <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Check▼</a>
+    <div class="dropdown-content">
+      <a href="#">History User</a>
+      <a href="#">Profile User</a>
+    </div>
+  </li>
+  <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Calories▼</a>
+        <div class="dropdown-content a">
+          <a href="#">Update</a>
+          <a href="#">View</a></div>
+  <li style="float:right"><a class=".home" href="Home.html"><font
+     size="+2">Log out</font></a></li>
+</ul>
+</div><br><BR><Br>
+<div align="center">
+    <font size="+3" color="red">►►Calculate BMI◄◄</font>
+</div>
+<div align="center">
+  <p><label><font size="+2">High </font></label> <input type="text" class="auth-input"></p>
+  <p><label><font size="+2">Weight</font></label> <input type="text" class="auth-input"></p>
+  <br>
+  <a href="" class="button button1"><font size="+2">Calculate</font></a>
+</div>
+</body>
+</html>
+
+
+<html>
+
+<head>
+    <style>
+        .button {
+            background-color: none;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button1 {
+            background-color: none;
+            color: none;
+            border: none;
+        }
+    </style>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="regist.css">
+    <link href="https://fonts.googleapis.com/css?family=Pompt:300,400" rel="stylesheet">
+    <title>Calculate BMI</title>
+
+<body background="BG_BMI.jpg">
+    <div class="container auth-container">
+        <div class="section-cards">
+            <div class="section-card-left">
+                <div class="card1">
+                    <div class="card-content" bgcolor="white">
+                        <script type="text/javascript">
+
+                            function computeBMI() {
+                                // user inputs
+                                var height = Number(document.getElementById("height").value);
+                                var heightunits = document.getElementById("heightunits").value;
+                                var weight = Number(document.getElementById("weight").value);
+                                var weightunits = document.getElementById("weightunits").value;
+                                //Convert all units to metric
+                                if (heightunits == "inches") height /= 39.3700787;
+                                if (weightunits == "lb") weight /= 2.20462;
+                                //Perform calculation
+                                //        var BMI = weight /Math.pow(height, 2)*10000;
+                                var BMI = Math.round(weight / Math.pow(height, 2) * 10000);
+                                //Display result of calculation
+                                document.getElementById("output").innerText = Math.round(BMI * 100) / 100;
+                                var output = Math.round(BMI * 100) / 100
+                                if (output < 18.5)
+                                    document.getElementById("comment").innerText = "Underweight";
+                                else if (output >= 18.5 && output <= 25)
+                                    document.getElementById("comment").innerText = "Normal";
+                                else if (output >= 25 && output <= 30)
+                                    document.getElementById("comment").innerText = "Obese";
+                                else if (output > 30)
+                                    document.getElementById("comment").innerText = "Overweight";
+                                // document.getElementById("answer").value = output; 
+                            }
+                        </script>
+
+                        <h1 class="auth-header1">
+                            <font size="+3">Body Mass Index Calculator</font>
+                        </h1>
+                        <p>Enter your height: <input type="text" id="height" />
+                            <select type="multiple" id="heightunits">
+                                <option value="metres" selected="selected">metres</option>
+                                <option value="inches">inches</option>
+                            </select>
+                        </p>
+                        <p>Enter your weight: <input type="text" id="weight" />
+                            <select type="multiple" id="weightunits">
+                                <option value="kg" selected="selected">kilograms</option>
+                                <option value="lb">pounds</option>
+                            </select>
+                        </p>
+                        <input class="compute" type="submit" value="ComputeBMI" onclick="computeBMI();" style="
+                        margin-left: 150px;
+                    ">
+                        <h1 class="bmi">
+                            <font size="+2">Your BMI is: <span id="output">?</font></span>
+                        </h1>
+                        <h1 class="bmi">
+                            <font size="+2">This means you are: <span id="comment"> ?</font></span> </h2>
+                            <p align="center"><a href="User.html" class="button button1">
+                                    <font color="black"><b>Back</b></font>
+                                </a></p>
+                            <font> </font>
+                            <font> </font>
+</body>
+</head>
+
+</html>
+<html >
+
+<head>
+    <style>
+        .button {
+            background-color: none;
+            border: none;
+            color: black;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button1 {
+            background-color: none;
+            color: none;
+            border: none;
+        }
+    </style>
+  <meta charset="UTF-8">
+  <title>Calculator Calories</title>
+      <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+      <h1>Calculator Calories</h1>
+    <label>Female:
+      <input id="female" type="radio" name="gender" onchange="calsPerDay()">
+    </label>
+    <label>Male:
+      <input id="male" type="radio" name="gender" onchange="calsPerDay()" checked>
+    </label>
+    <label>Age:
+      <input id="age" type="number" oninput="calsPerDay()" value="0">
+      years
+    </label>
+    <label>Height:
+      <input id="height" type="number" oninput="calsPerDay()" value="0">
+      in centimetres
+    </label>
+    <label>Weight:
+      <input id="weight" type="number" oninput="calsPerDay()" value="0">
+      in kilograms
+    </label>
+    <label onclick="calsPerDay">
+      Base metabolic rate: <span id="totalCals"></span> kcal per day
+    </label>
+    <script  src="index.js"></script>
+    <p align ="center">
+      <a href="User.html" class="button button1"><font size="+4">Back</font></a>
+    </p>
+</body>
+
+</html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+          /* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: white;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+  .button {
+  background-color: none;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: none; 
+  color: black; 
+  border: none;
+}
+
+.button1:hover {
+  background-color: greenyellow;
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.button2 {
+  background-color: none; 
+  color: black; 
+  border: none;
+}
+
+.button2:hover {
+  background-color :blue;
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.button1 {font-size: 35px;}
+.button2 {font-size: 35px;}
+        </style>
+        <title>Home</title>
+        <link rel="shortcut icon" href="Home.png">
+        <body>
+            <hr color="black" width="100%" size="10">
+                <p align="center">    
+                    <font size="+4"><b>Home</b></font></p></body>
+            <hr color="black" width="100%" size="10">
+            <br><br><br><br><br><br><br><br><br>
+            <p align="center"><font size="+4"><b>Login</b></font><br><br><br><br><br>
+            </p>
+        <div align="center">
+            <button class="button1" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><font size="+4">User</font></button>
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+
+    <div class="container">
+      <label for="uname"><b><font size="+1">Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button type="submit"><font size="+2">Login</font></button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn" style="
+      margin-left: 160px;">Cancel</button>
+    <span class="psw">Forgot <a href="#">password?</font></a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+            <button class="button1" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><font size="+4">Admin</font></button>
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+
+    <div class="container">
+      <label for="uname"><b><font size="+1">Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button type="submit"><font size="+2">Login</font></button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn"style="
+      margin-left: 160px;">Cancel</button>
+    <span class="psw">Forgot <a href="#">password?</font></a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+<br>
+            <br><font size="+4"><b>Or</b></font><br><br>
+            <br><a href="register.html" class="button button2">Register</a>
+        </div>
+        <br><br><br><br><br><br><br><br><br>
+        <hr color="black" width="100%" size="10">
+    </head>
+</html>
+
+    function calsPerDay() {
+      function find(id) { return document.getElementById(id) }
+
+      var age = find("age").value
+      var height = find("height").value 
+      var weight = find("weight").value 
+      var result = 0
+      if (find("male").checked) 
+        result = 66.47 + (13.75 * weight) + (5.0 * height - (6.75 * age))
+      else if (find("female").checked)
+        result = 665.09 + (9.56 * weight) + (1.84 * height - (4.67 * age))
+      find("totalCals").innerHTML = Math.round( result )
+    }
+    calsPerDay()
+
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container{
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.auth-container{
+    width: 400px;
+    height: 300px;
+    margin-top: 60px;
+}
+
+.auth-header{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 300px;
+}
+.card{
+    
+    height: 120%;
+    width: 120%;
+    border: 1px solid #d8d8d8;
+    position: relative;
+    border-radius:10px;
+    overflow: hidden;
+    box-shadow: 0px 3px 6px #d8d8d8;
+}
+.card-content{
+    padding: 12px;
+}
+
+.auth-input{
+    display: block;
+    width: 100%;
+    height: 42px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    font-size: 24px;
+    font-family: inherit;
+
+}
+.auth-btn{
+    display: block;
+    width: 100%;
+    height: 36px;
+    font-family: inherit;
+    background-color: #17e880;
+    color: #fff;
+    border: 1px solid #d8d8d8;
+}
+.auth-link{
+  display: block;
+    text-align: center;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    text-decoration: none;
+    color: #6f6f6f;
+}
+.section-cards{
+   margin-top: 18px; 
+}
+
+.section-cards .section-card-left{
+    height: 500px;
+    width: 100%;
+    
+}
+.auth-header1{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 300px;	
+}
+.bmi{
+    text-align: left;
+    font-size: 17px;
+    font-weight: 300px;	
+}
+.compute{
+    
+    display: block;
+    width: 25%;
+    height: 36px;
+    font-size: 15px;
+    background-color: #98FB98;
+    color: #fff;
+    border: 1px solid #d8d8d8;
+}
+.card1{
+   background-color: rgba(255, 255, 255, 0.788);
+    height: 75%;
+    width: 110%;
+    border: 1px solid #d8d8d8;
+    position: relative;
+    border-radius:10px;
+    overflow: hidden;
+    box-shadow: 0px 3px 6px #d8d8d8;
+}
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="regist.css">
+        <link href="https://fonts.googleapis.com/css?family=Pompt:300,400" rel="stylesheet">
+        <title>Register</title>
+        <link rel="shortcut icon" href="Regist.png">
+    </head>
+    <head>
+    <body>
+        <div class="container auth-container">
+          <div class="section-cards">
+          <div class="section-card-left">
+           <div class="card">
+               <div class="card-content">
+                   <h3 class="auth-header">Register</h3>
+            <form>
+               <label>E-mail:</label>
+                <input type="text" class="auth-input">
+                <label>Username:</label>
+                <input type="text" class="auth-input">
+                <label>Password:</label>
+                <input type="text" class="auth-input">
+                <label>Confirm-Password:</label>
+                <input type="text" class="auth-input">
+                <button class="auth-btn">
+                    Confirm
+                </button>
+                <a href="Home.html" class="auth-link">Home</a>
+            </form>
+           </div>
+        </div>
+    </div>
+        </div>
+        </div>
+    </body>
+    </head>
+</html>
+    label {
+      display: block;
+      box-shadow: 0.1em 0.1em 0.2em #888;
+      margin: 10px;
+      border-radius: 10px;
+      padding: 1ex 1em;
+    }
+    input[type=number] {
+      text-align: right;
+      border: none;
+    }
+    input {
+      float: right;
+    }
+
+<html>
+
+<head>
+  <style>
+    .auth-input {
+      display: block;
+      width: 15%;
+      height: 20px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-size: 24px;
+      font-family: inherit;
+
+    }
+
+    .button {
+      background-color: none;
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      -webkit-transition-duration: 0.4s;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+
+    .button1 {
+      background-color: none;
+      color: white;
+      border: none;
+    }
+
+    .button1:hover {
+      background-color: #0000ff;
+      color: white;
+      text-decoration: none;
+      box-shadow: 0 12px 16px 0 rgb(253, 252, 252), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .button2 {
+      background-color: none;
+      color: white;
+      border: none;
+    }
+
+    .button2:hover {
+      background-color: red;
+      color: white;
+      text-decoration: none;
+      box-shadow: 0 12px 16px 0 rgb(253, 253, 253), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: black
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: gray;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover {
+      background-color: rgb(0, 255, 76);
+      text-decoration: none;
+    }
+
+    .active {
+      text-decoration: none;
+      background-color: red;
+    }
+  </style>
+  <title>User</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body background="Bg_User.jpg">
+  <div>
+    <ul>
+      <li>
+        <a href="Proflie">
+          <font size="+3">Profile</font>
+        </a></li>
+      <li>
+        <a href="https://www.mfu.ac.th/mfu-landing-page.html" target="bang" style="margin-left: 800px;">
+          <img src="Logo_MFU.png" width="28.1" height="48.2">
+        </a></li>
+      <li style="float:right">
+        <a href="Home.html" class="active">
+          <font size="+3">Log out</font>
+        </a></li>
+    </ul>
+    <br><br>
+    <div align="center" class="container">
+      <marquee direction="left" scrollamount="20" behavior="alternate">
+        <font size="+4" color="white"><img src="Logo_MFU.png" width="56.2" height="96.4"> Welcome <img
+            src="Logo_MFU.png" width="56.2" height="96.4"></font>
+      </marquee><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <div align="center">
+        <a href="" class="button button1">
+          <font size="+3">Exercise</font>
+        </a>
+        <a href="BMI.html" class="button button2">
+          <font size="+3">Calculate BMI</font>
+        </a>
+        <a href="" class="button button1">
+          <font size="+3">Food</font>
+        </a>
+        <a href="Calories.html" class="button button2">
+          <font size="+3">Calculate calories</font>
+        </a>
+      </div>
+</body>
+
+</html>
