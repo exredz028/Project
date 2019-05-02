@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+  font-size: 28px;
+}
+.auth-input{
+    display: block;
+    width: 15%;
+    height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-family: inherit;
+
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:black;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: goldenrod;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.dropdown-content a:hover {background-color:red;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.home {
+  background-color: red;
+}
+.button {
+  background-color: black;
+  border: red;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: black; 
+  color: white; 
+  border: none;
+}
+
+.button1:hover {
+  background-color: green;
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+</style>
+<title>Admin</title>
+<link rel="shortcut icon" href="Rapper.ico">
+</head>
+<body>
+        <div align ="center" class="header">
+                <h2><font size="+4"><b>Admin</b></font></h2>
+              </div>
+
+<ul>
+    <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Exersice▼</a>
+        <div class="dropdown-content a">
+          <a href="#">Update</a>
+          <a href="#">View</a>
+        </div>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Manage▼</a>
+    <div class="dropdown-content a">
+      <a href="#">Information User</a>
+      <a href="#">Content</a>
+    </div>
+      <li class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">Check▼</a>
+    <div class="dropdown-content">
+      <a href="#">History User</a>
+      <a href="#">Profile User</a>
+    </div>
+  </li>
+  <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Calories▼</a>
+        <div class="dropdown-content a">
+          <a href="#">Update</a>
+          <a href="#">View</a></div>
+  <li style="float:right"><a class=".home" href="Home.html"><font
+     size="+2">Log out</font></a></li>
+</ul>
+</div><br><BR><Br>
+<div align="center">
+    <font size="+3" color="red">►►Calculate BMI◄◄</font>
+</div>
+<div align="center">
+  <p><label><font size="+2">High </font></label> <input type="text" class="auth-input"></p>
+  <p><label><font size="+2">Weight</font></label> <input type="text" class="auth-input"></p>
+  <br>
+  <a href="" class="button button1"><font size="+2">Calculate</font></a>
+</div>
+</body>
+</html>
