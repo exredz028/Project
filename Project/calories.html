@@ -1,0 +1,43 @@
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator Calories</title>
+      <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+      <h1>Calculator Calories</h1>
+    <label>Female:
+      <input id="female" type="radio" name="gender" onchange="calsPerDay()">
+    </label>
+    <label>Male:
+      <input id="male" type="radio" name="gender" onchange="calsPerDay()" checked>
+    </label>
+    <label>Age:
+      <input id="age" type="number" oninput="calsPerDay()" value="0">
+      years
+    </label>
+    <label>Height:
+      <input id="height" type="number" oninput="calsPerDay()" value="0">
+      in centimetres
+    </label>
+    <label>Weight:
+      <input id="weight" type="number" oninput="calsPerDay()" value="0">
+      in kilograms
+    </label>
+    <label onclick="calsPerDay">
+      Base metabolic rate: <span id="totalCals"></span> kcal per day
+    </label>
+  
+  
+
+    <script  src="index.js"></script>
+
+
+
+
+</body>
+
+</html>
