@@ -1,0 +1,29 @@
+/* Autobar */
+#navbar {
+    background-color: #333; 
+    position: fixed; 
+    top: -50px; 
+    width: 100%; 
+    transition: top 0.3s; 
+  }
+  
+ 
+  
+  }
+  /* image center */
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+ 
+
+
+
+
+
+
+
+
