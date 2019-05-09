@@ -1,0 +1,14 @@
+    label {
+      display: block;
+      box-shadow: 0.1em 0.1em 0.2em #888;
+      margin: 10px;
+      border-radius: 10px;
+      padding: 1ex 1em;
+    }
+    input[type=number] {
+      text-align: right;
+      border: none;
+    }
+    input {
+      float: right;
+    }

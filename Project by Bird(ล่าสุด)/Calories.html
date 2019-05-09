@@ -1,0 +1,61 @@
+<html >
+
+<head>
+    <style>
+        .button {
+            background-color: none;
+            border: none;
+            color: black;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            -webkit-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button1 {
+            background-color: none;
+            color: none;
+            border: none;
+        }
+    </style>
+  <meta charset="UTF-8">
+  <title>Calculator Calories</title>
+      <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+      <h1>Calculator Calories</h1>
+    <label>Female:
+      <input id="female" type="radio" name="gender" onchange="calsPerDay()">
+    </label>
+    <label>Male:
+      <input id="male" type="radio" name="gender" onchange="calsPerDay()" checked>
+    </label>
+    <label>Age:
+      <input id="age" type="number" oninput="calsPerDay()" value="0">
+      years
+    </label>
+    <label>Height:
+      <input id="height" type="number" oninput="calsPerDay()" value="0">
+      in centimetres
+    </label>
+    <label>Weight:
+      <input id="weight" type="number" oninput="calsPerDay()" value="0">
+      in kilograms
+    </label>
+    <label onclick="calsPerDay">
+      Base metabolic rate: <span id="totalCals"></span> kcal per day
+    </label>
+    <script  src="index.js"></script>
+    <p align ="center">
+      <a href="User.html" class="button button1"><font size="+4">Back</font></a>
+    </p>
+</body>
+
+</html>
