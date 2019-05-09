@@ -78,7 +78,6 @@
     font-weight: 300px;	
 }
 .compute{
-    
     display: block;
     width: 25%;
     height: 36px;
@@ -89,7 +88,7 @@
 }
 .card1{
    background-color: rgba(255, 255, 255, 0.788);
-    height: 75%;
+    height: 110%;
     width: 110%;
     border: 1px solid #d8d8d8;
     position: relative;
